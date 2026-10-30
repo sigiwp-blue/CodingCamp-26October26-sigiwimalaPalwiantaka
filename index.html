@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Expense &amp; Budget Visualizer</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Non-blocking warning banner (shown on localStorage errors) -->
+  <div class="warning-banner" id="warning-banner" hidden></div>
+
+  <header class="app-header">
+    <h1> 🧮 Expense &amp; Budget Visualizer</h1>
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" type="button" aria-label="Toggle dark/light theme">🌙 Toggle Theme</button>
+  </header>
+
+  <main class="app-main">
+
+    <!-- Balance Display -->
+    <section class="balance-section" aria-label="Total Balance">
+      <h2>Total Balance</h2>
+      <div id="balance-display" aria-live="polite">$0.00</div>
+    </section>
+
+    <!-- Transaction Input Form -->
+    <section class="form-section" aria-label="Add Transaction">
+      <h2>Add Transaction</h2>
+      <form id="transaction-form" novalidate>
+        <div class="form-group">
+          <label for="input-name">Item Name</label>
+          <input
+            type="text"
+            id="input-name"
+            name="name"
+            maxlength="100"
+            placeholder="e.g. Coffee"
+            autocomplete="off"
+          />
+          <span class="field-error" id="error-name" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="input-amount">Amount (Rp)</label>
+          <input
+            type="number"
+            id="input-amount"
+            name="amount"
+            min="0.01"
+            max="999999999.99"
+            step="0.01"
+            placeholder="0.00"
+          />
+          <span class="field-error" id="error-amount" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="input-category">Category</label>
+          <select id="input-category" name="category">
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Fun">Fun</option>
+          </select>
+          <span class="field-error" id="error-category" aria-live="polite"></span>
+        </div>
+
+        <button type="submit" class="btn-primary">Add Transaction</button>
+      </form>
+    </section>
+
+    <!-- Month Filter -->
+    <section class="filter-section" aria-label="Month Filter">
+      <h2>Filter by Month</h2>
+      <div class="filter-controls">
+        <input type="month" id="month-filter" aria-label="Select month and year" />
+        <button type="button" id="clear-month-filter">Clear Filter</button>
+      </div>
+    </section>
+
+    <!-- Sort Controls -->
+    <section class="sort-section" aria-label="Sort Transactions">
+      <h2>Sort By</h2>
+      <div id="sort-controls">
+        <select id="sort-select" aria-label="Sort transactions by">
+          <option value="">Date (newest first)</option>
+          <option value="amount_asc">Amount (low to high)</option>
+          <option value="amount_desc">Amount (high to low)</option>
+          <option value="category_asc">Category (A–Z)</option>
+          <option value="category_desc">Category (Z–A)</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Transaction List -->
+    <section class="list-section" aria-label="Transaction History">
+      <h2>Transactions</h2>
+      <ul id="transaction-list" aria-label="Transaction list" role="list">
+        <p class="empty-state">No transactions recorded yet.</p>
+      </ul>
+    </section>
+
+    <!-- Spending Chart -->
+    <section id="chart-section" class="chart-section" aria-label="Spending Distribution">
+      <h2>Spending by Category</h2>
+      <canvas id="spending-chart" role="img" aria-label="Pie chart showing spending distribution by category"></canvas>
+      <p id="chart-empty-message" class="empty-state" hidden>No spending data available.</p>
+    </section>
+
+    <!-- Budget Limit Form -->
+    <section class="budget-section" aria-label="Budget Limits">
+      <h2>Set Budget Limit</h2>
+      <form id="budget-form" novalidate>
+        <div class="form-group">
+          <label for="budget-category">Category</label>
+          <select id="budget-category" name="budget-category">
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Fun">Fun</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="budget-amount">Limit (Rp)</label>
+          <input
+            type="number"
+            id="budget-amount"
+            name="budget-amount"
+            min="0.01"
+            max="999999999.99"
+            step="0.01"
+            placeholder="0.00"
+          />
+          <span class="field-error" id="error-budget-amount" aria-live="polite"></span>
+        </div>
+
+        <button type="submit" class="btn-primary">Set Limit</button>
+      </form>
+
+      <!-- Budget Warnings -->
+      <div id="budget-warnings" aria-live="polite" aria-label="Budget warnings"></div>
+    </section>
+
+    <!-- Category Manager -->
+    <section class="category-section" aria-label="Category Manager">
+      <h2>Add Custom Category</h2>
+      <form id="add-category-form" novalidate>
+        <div class="form-group">
+          <label for="input-category-name">Category Name</label>
+          <input
+            type="text"
+            id="input-category-name"
+            name="category-name"
+            maxlength="50"
+            placeholder="e.g. Healthcare"
+            autocomplete="off"
+          />
+          <span class="field-error" id="error-category-name" aria-live="polite"></span>
+        </div>
+        <button type="submit" class="btn-primary">Add Category</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Chart.js from CDN with onerror fallback -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"
+    onerror="(function(){ window.__chartJsUnavailable = true; var s = document.getElementById('chart-section'); if(s){ s.hidden = true; var msg = document.createElement('p'); msg.textContent = 'Chart unavailable: could not load Chart.js library.'; msg.className = 'empty-state'; s.parentNode.insertBefore(msg, s.nextSibling); } })()"
+  ></script>
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>

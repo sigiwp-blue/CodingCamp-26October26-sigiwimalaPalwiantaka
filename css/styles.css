@@ -1,0 +1,548 @@
+/* ============================================================
+    CSS Custom Properties — Light Theme (default)
+   ============================================================ */
+:root {
+  --color-bg: #FFF7F3;
+  --color-surface: #FFFCFA;
+  --color-surface-alt: #FFF9F6;
+  --color-border: #F3D6CC;
+  --color-text-primary: #4A4453;
+  --color-text-secondary: #7A7480;
+  --color-accent: #ad82d5;
+  --color-accent-hover: #c6a6e4;
+  --color-danger: #ff5757;
+  --color-warning-bg: #fae2a2;
+  --color-warning-border: #ebbc5e;
+  --color-warning-text: #7b5618;
+  --color-over-budget-bg: #fec8c6;
+  --color-over-budget-border: #e86c67;
+  --color-empty-text: #706e71;
+  --color-btn-text: #FFFFFF;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --radius: 0.5rem;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================================
+    Dark Theme Overrides
+   ============================================================ */
+[data-theme="dark"] {
+  --color-bg: #171923;
+  --color-surface: #222638;
+  --color-surface-alt: #2D3347;
+  --color-border: #454B61;
+  --color-text-primary: #F5F3FA;
+  --color-text-secondary: #B8B5C5;
+  --color-accent: #C4A7E7;
+  --color-accent-hover: #9e67e6;
+  --color-danger: #E9A6B0;
+  --color-warning-bg: #3A3425;
+  --color-warning-border: #D8B96A;
+  --color-warning-text: #F3DFA1;
+  --color-over-budget-bg: #3A2931;
+  --color-over-budget-border: #D995A5;
+  --color-empty-text: #888697;
+  --color-btn-text: #211D29;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.30);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.40);
+}
+
+/* ============================================================
+    Reset & Base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* ============================================================
+    Layout
+   ============================================================ */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-header h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .app-main {
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem;
+  }
+
+  .balance-section,
+  .list-section,
+  .chart-section {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ============================================================
+    Sections / Cards
+   ============================================================ */
+section {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+    Balance Display
+   ============================================================ */
+#balance-display {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+}
+
+/* ============================================================
+    Warning Banner
+   ============================================================ */
+.warning-banner {
+  background-color: var(--color-warning-bg);
+  border: 1px solid var(--color-warning-border);
+  color: var(--color-warning-text);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  border-radius: var(--radius);
+  margin: 0.75rem 1rem;
+}
+
+/* The banner uses the `hidden` attribute; override display so it shows correctly */
+.warning-banner:not([hidden]) {
+  display: block;
+}
+
+/* ============================================================
+    Forms
+   ============================================================ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.875rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius) / 2);
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-primary);
+  font-size: 0.9375rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+/* Inline field errors */
+.field-error {
+  font-size: 0.8125rem;
+  color: var(--color-danger);
+  min-height: 1.1em;
+}
+
+/* ============================================================
+    Buttons
+   ============================================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--color-accent);
+  color: var(--color-btn-text);
+  border: none;
+  border-radius: calc(var(--radius) / 2);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius) / 2);
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+#theme-toggle:hover {
+  background-color: var(--color-border);
+}
+
+/* Clear filter button */
+#clear-month-filter {
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius) / 2);
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+#clear-month-filter:hover {
+  background-color: var(--color-border);
+}
+
+/* ============================================================
+    Filter Controls
+   ============================================================ */
+.filter-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#month-filter {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius) / 2);
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-primary);
+  font-size: 0.9375rem;
+  outline: none;
+}
+
+#month-filter:focus {
+  border-color: var(--color-accent);
+}
+
+/* ============================================================
+    Sort Controls
+   ============================================================ */
+#sort-controls select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius) / 2);
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-primary);
+  font-size: 0.9375rem;
+  outline: none;
+}
+
+#sort-controls select:focus {
+  border-color: var(--color-accent);
+}
+
+/* ============================================================
+    Transaction List
+   ============================================================ */
+#transaction-list {
+  list-style: none;
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+#transaction-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+#transaction-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#transaction-list::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 3px;
+}
+
+/* Transaction row */
+#transaction-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius) / 2);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Over-budget highlight */
+#transaction-list li.over-budget {
+  background-color: var(--color-over-budget-bg);
+  border-color: var(--color-over-budget-border);
+}
+
+.transaction-name {
+  flex: 1;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.transaction-amount {
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--color-text-primary);
+}
+
+.transaction-date {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+/* Category badge */
+.category-badge {
+  display: inline-block;
+  padding: 0.1875rem 0.5rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+/* Delete button — app.js uses class "delete-btn"; also supported as "btn-delete" */
+.btn-delete,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-danger);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: calc(var(--radius) / 4);
+  transition: background-color 0.15s ease;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-delete:hover,
+.delete-btn:hover {
+  background-color: var(--color-over-budget-bg);
+}
+
+/* Empty state */
+.empty-state {
+  color: var(--color-empty-text);
+  font-size: 0.9375rem;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+/* ============================================================
+   Chart Section
+   ============================================================ */
+.chart-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#spending-chart {
+  max-width: 360px;
+  max-height: 360px;
+  width: 100%;
+}
+
+/* chart-empty-message uses the `hidden` attribute; ensure clean layout when visible */
+#chart-empty-message {
+  margin-top: 1rem;
+}
+
+/* ============================================================
+    Budget Warnings
+   ============================================================ */
+#budget-warnings {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* app.js renders divs with class "budget-warning"; also supported as "budget-warning-item" */
+.budget-warning,
+.budget-warning-item {
+  padding: 0.625rem 0.875rem;
+  background-color: var(--color-warning-bg);
+  border: 1px solid var(--color-warning-border);
+  border-radius: calc(var(--radius) / 2);
+  color: var(--color-warning-text);
+  font-size: 0.875rem;
+}
+
+/* ============================================================
+    Transaction Item (explicit class used by app.js on <li> elements)
+   ============================================================ */
+.transaction-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius) / 2);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Over-budget highlight (Req 9.2) — applied to both <li> and .transaction-item */
+.transaction-item.over-budget,
+#transaction-list li.over-budget {
+  background-color: var(--color-over-budget-bg);
+  border-color: var(--color-over-budget-border);
+}
+
+/* ============================================================
+    Responsive Grid — two columns on wider screens
+   ============================================================ */
+@media (min-width: 640px) {
+  .filter-section,
+  .sort-section {
+    /* Each takes one column; they sit side-by-side */
+    grid-column: span 1;
+  }
+
+  .budget-section,
+  .category-section {
+    grid-column: span 1;
+  }
+
+  .form-section {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ============================================================
+    Accessibility — focus-visible ring for keyboard navigation
+   ============================================================ */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+    Utility — visually hidden (for screen-reader-only text)
+   ============================================================ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================================
+    Theme toggle — dark mode active state
+   ============================================================ */
+[data-theme="dark"] #theme-toggle {
+  background-color: var(--color-surface-alt);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+/* ============================================================
+    Form submit button — full-width on small screens
+   ============================================================ */
+.form-section .btn-primary,
+.budget-section .btn-primary,
+.category-section .btn-primary {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 420px) {
+  .form-section .btn-primary,
+  .budget-section .btn-primary,
+  .category-section .btn-primary {
+    width: auto;
+  }
+}

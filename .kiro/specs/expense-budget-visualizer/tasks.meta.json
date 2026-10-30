@@ -1,0 +1,311 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Set up project structure and HTML scaffold": [
+      {
+        "executionId": "50a120d0-e30c-4120-b091-596d4c13eef3",
+        "chatSessionId": "sess_1d6f6956-cdc3-4f77-ad3e-aed4bca7e2b1",
+        "timestamp": 1793336608355
+      },
+      {
+        "executionId": "50a120d0-e30c-4120-b091-596d4c13eef3",
+        "chatSessionId": "sess_1d6f6956-cdc3-4f77-ad3e-aed4bca7e2b1",
+        "timestamp": 1793336767208
+      }
+    ],
+    "2.1 Define `AppState` singleton and `SORT_OPTIONS` constant": [
+      {
+        "executionId": "34befa82-b8cd-406d-b9fe-46b48af207b6",
+        "chatSessionId": "sess_c05e3820-052d-478d-bcc1-0d592eb6d703",
+        "timestamp": 1793336838246
+      },
+      {
+        "executionId": "34befa82-b8cd-406d-b9fe-46b48af207b6",
+        "chatSessionId": "sess_c05e3820-052d-478d-bcc1-0d592eb6d703",
+        "timestamp": 1793336877045
+      }
+    ],
+    "2.3 Implement `saveTransactions`, `loadTransactions`, `saveCategories`, `loadCategories`, `saveBudgetLimits`, `loadBudgetLimits`, `saveSortOption`, `loadSortOption`, `saveTheme`, `loadTheme`": [
+      {
+        "executionId": "34befa82-b8cd-406d-b9fe-46b48af207b6",
+        "chatSessionId": "sess_c05e3820-052d-478d-bcc1-0d592eb6d703",
+        "timestamp": 1793336882798
+      },
+      {
+        "executionId": "34befa82-b8cd-406d-b9fe-46b48af207b6",
+        "chatSessionId": "sess_c05e3820-052d-478d-bcc1-0d592eb6d703",
+        "timestamp": 1793336945175
+      }
+    ],
+    "2. Implement AppState, localStorage helpers, and serialization": [
+      {
+        "executionId": "34befa82-b8cd-406d-b9fe-46b48af207b6",
+        "chatSessionId": "sess_c05e3820-052d-478d-bcc1-0d592eb6d703",
+        "timestamp": 1793336945826
+      }
+    ],
+    "3.1 Implement `validateNameInput(name)` and `validateAmountInput(str)` and `validateCategoryInput(name, existingCategories)` and `validateBudgetInput(str)`": [
+      {
+        "executionId": "c3cd5c05-45e9-4e66-b08d-df91d2910dde",
+        "chatSessionId": "sess_32cea1c5-b5bc-42af-a36c-8c0c73164675",
+        "timestamp": 1793336995400
+      },
+      {
+        "executionId": "c3cd5c05-45e9-4e66-b08d-df91d2910dde",
+        "chatSessionId": "sess_32cea1c5-b5bc-42af-a36c-8c0c73164675",
+        "timestamp": 1793337143801
+      }
+    ],
+    "3. Implement validation helpers": [
+      {
+        "executionId": "c3cd5c05-45e9-4e66-b08d-df91d2910dde",
+        "chatSessionId": "sess_32cea1c5-b5bc-42af-a36c-8c0c73164675",
+        "timestamp": 1793337144203
+      }
+    ],
+    "4.1 Implement `formatCurrency(amount)`, `formatDate(isoString)`, `computeBalance(transactions)`, `computeCategoryTotals(transactions)`": [
+      {
+        "executionId": "65a5758b-159f-46ad-9d17-736c99a6192d",
+        "chatSessionId": "sess_d3908bfa-cdd7-4833-9984-0610afa708e4",
+        "timestamp": 1793337234461
+      },
+      {
+        "executionId": "65a5758b-159f-46ad-9d17-736c99a6192d",
+        "chatSessionId": "sess_d3908bfa-cdd7-4833-9984-0610afa708e4",
+        "timestamp": 1793337357913
+      }
+    ],
+    "4.2 Implement `filterByMonth(transactions, monthFilter)` and `sortTransactions(transactions, sortOption)`": [
+      {
+        "executionId": "65a5758b-159f-46ad-9d17-736c99a6192d",
+        "chatSessionId": "sess_d3908bfa-cdd7-4833-9984-0610afa708e4",
+        "timestamp": 1793337240373
+      },
+      {
+        "executionId": "65a5758b-159f-46ad-9d17-736c99a6192d",
+        "chatSessionId": "sess_d3908bfa-cdd7-4833-9984-0610afa708e4",
+        "timestamp": 1793337363803
+      }
+    ],
+    "4. Implement formatting helpers and computed value functions": [
+      {
+        "executionId": "65a5758b-159f-46ad-9d17-736c99a6192d",
+        "chatSessionId": "sess_d3908bfa-cdd7-4833-9984-0610afa708e4",
+        "timestamp": 1793337364488
+      }
+    ],
+    "6.1 Implement `renderBalance(filteredTransactions)`": [
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337435754
+      },
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337501723
+      }
+    ],
+    "6.2 Implement `renderTransactionList(filteredSortedTransactions)`": [
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337508075
+      },
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337569147
+      }
+    ],
+    "6.3 Implement `renderChart(filteredTransactions)`": [
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337574634
+      },
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337666768
+      }
+    ],
+    "6.4 Implement `renderBudgetWarnings(filteredTransactions)`": [
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337672002
+      },
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337712179
+      }
+    ],
+    "6.5 Implement `renderCategorySelects()`": [
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337719445
+      },
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337765500
+      }
+    ],
+    "6.6 Implement central `render()` function": [
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337771244
+      },
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337803386
+      }
+    ],
+    "6. Implement render functions": [
+      {
+        "executionId": "7aecb0c2-d3a3-426d-8f08-7d44640e8f24",
+        "chatSessionId": "sess_544b5ea0-bfa0-414e-b231-cd406a80be60",
+        "timestamp": 1793337803512
+      }
+    ],
+    "7.1 Implement `isOverBudget(category, transactions, budgetLimits)` helper": [
+      {
+        "executionId": "50e3de96-6754-41d9-b3d6-06e6ce777697",
+        "chatSessionId": "sess_0827ddd9-a30a-4b80-abde-1f5adcea056f",
+        "timestamp": 1793337869688
+      },
+      {
+        "executionId": "50e3de96-6754-41d9-b3d6-06e6ce777697",
+        "chatSessionId": "sess_0827ddd9-a30a-4b80-abde-1f5adcea056f",
+        "timestamp": 1793337920801
+      }
+    ],
+    "7. Implement budget warning logic": [
+      {
+        "executionId": "50e3de96-6754-41d9-b3d6-06e6ce777697",
+        "chatSessionId": "sess_0827ddd9-a30a-4b80-abde-1f5adcea056f",
+        "timestamp": 1793337920909
+      }
+    ],
+    "8.1 Implement transaction form submit handler (`handleAddTransaction`)": [
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338004608
+      },
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338082304
+      }
+    ],
+    "8.2 Implement transaction delete handler (`handleDelete(id)`)": [
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338087124
+      },
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338157348
+      }
+    ],
+    "8.3 Implement category form submit handler (`handleAddCategory`)": [
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338164228
+      },
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338594415
+      }
+    ],
+    "8.4 Implement month filter change and clear handlers": [
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338169412
+      },
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338599515
+      }
+    ],
+    "8.5 Implement sort controls change handler": [
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338174206
+      },
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338604316
+      }
+    ],
+    "8.6 Implement budget limit form submit handler (`handleSetBudget`)": [
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338609416
+      },
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793340245636
+      }
+    ],
+    "8.7 Implement theme toggle handler and initial theme application": [
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793338615976
+      },
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793340515662
+      }
+    ],
+    "8. Implement event handlers and wire up interactions": [
+      {
+        "executionId": "17214648-b447-4db3-8645-2300df6a0798",
+        "chatSessionId": "sess_93fba22e-d280-4150-bbf7-94f2b3421091",
+        "timestamp": 1793340515787
+      }
+    ],
+    "9. Implement application bootstrap (`init`)": [
+      {
+        "executionId": "ae469228-ed1c-4162-8457-4fef1c7ee1a2",
+        "chatSessionId": "sess_62a0b59e-fc64-490d-8253-6d326ad5a283",
+        "timestamp": 1793340714149
+      },
+      {
+        "executionId": "ae469228-ed1c-4162-8457-4fef1c7ee1a2",
+        "chatSessionId": "sess_62a0b59e-fc64-490d-8253-6d326ad5a283",
+        "timestamp": 1793340844304
+      }
+    ],
+    "11. Implement CSS styling for all themes and states": [
+      {
+        "executionId": "06982d5e-a2a9-4ce4-a75d-234c3b61e028",
+        "chatSessionId": "sess_06cf5684-d07a-4436-bffe-e3fc34c2e0f2",
+        "timestamp": 1793340881690
+      },
+      {
+        "executionId": "06982d5e-a2a9-4ce4-a75d-234c3b61e028",
+        "chatSessionId": "sess_06cf5684-d07a-4436-bffe-e3fc34c2e0f2",
+        "timestamp": 1793340998165
+      }
+    ]
+  }
+}
